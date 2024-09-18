@@ -1,5 +1,5 @@
 <template>
-  <p class="fs-5">
+  <p class="fs-5 fw-bold">
     <slot></slot>
   </p>
 </template>

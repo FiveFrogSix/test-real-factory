@@ -42,10 +42,11 @@ const handlerChange = (event: Event) => {
       v-model="internalValue"
       @change="handlerChange"
     />
-    <label class="btn btn-outline-primary w-100" :for="id">
+    <label
+      class="btn btn-lg btn-outline-primary btn-outline-primary-custom w-100"
+      :for="id"
+    >
       <slot></slot>
     </label>
   </div>
 </template>
-
-<style></style>

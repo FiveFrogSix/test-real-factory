@@ -12,8 +12,13 @@ export default defineNuxtConfig({
   css: [
     "@/assets/scss/bootstrap/bootstrap.custom.scss",
     "@/assets/scss/style.scss",
+    "@fortawesome/fontawesome-svg-core/styles.css",
   ],
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   modules: ["@pinia/nuxt"],
+  plugins: [{ src: "@/plugins/fontawesome.ts", ssr: false }],
+  build: {
+    transpile: ["@fortawesome/vue-fontawesome"],
+  },
 });
