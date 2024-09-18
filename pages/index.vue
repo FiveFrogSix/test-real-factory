@@ -1,0 +1,3 @@
+<template>
+  <FormGenerateImage></FormGenerateImage>
+</template>
