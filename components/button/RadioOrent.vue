@@ -1,16 +1,51 @@
 <script lang="ts" setup>
+const model = defineModel();
+const emit = defineEmits(["update:modelValue", "change"]);
+const internalValue = ref(model.value);
+const radio = ref();
 defineProps({
-  title: {
-    default: "",
+  id: {
     type: String,
   },
+  name: {
+    type: String,
+  },
+  value: {
+    default: "",
+    type: [String, Number],
+  },
 });
+
+watch(internalValue, (newValue) => {
+  emit("update:modelValue", newValue);
+});
+
+watch(model, (newValue) => {
+  internalValue.value = newValue;
+});
+
+const handlerChange = (event: Event) => {
+  emit("change", event);
+};
 </script>
 
 <template>
-  <button type="button" class="btn btn-outline-primary">
-    <slot></slot>
-  </button>
+  <div>
+    <input
+      ref="radio"
+      type="radio"
+      class="btn-check"
+      :name="name"
+      :id="id"
+      autocomplete="off"
+      :value="value"
+      v-model="internalValue"
+      @change="handlerChange"
+    />
+    <label class="btn btn-outline-primary w-100" :for="id">
+      <slot></slot>
+    </label>
+  </div>
 </template>
 
 <style></style>

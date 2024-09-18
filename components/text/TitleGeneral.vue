@@ -1,5 +1,5 @@
 <template>
-  <p>
+  <p class="fs-5">
     <slot></slot>
   </p>
 </template>
