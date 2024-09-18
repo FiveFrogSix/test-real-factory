@@ -139,5 +139,117 @@ export const useGenerateImgStore = defineStore("generateImgStore", () => {
     },
   ]);
 
-  return { sizeList, colorList };
+  const imgstyleList = ref([
+    {
+      id: "Vintage",
+      title: "Vintage",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/vintage.jpg",
+    },
+    {
+      id: "Modern",
+      title: "Modern",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/modern.jpg",
+    },
+    {
+      id: "Romatic",
+      title: "Romatic",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/romatic.jpg",
+    },
+    {
+      id: "Medieval",
+      title: "Medieval",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/medieval.jpg",
+    },
+    {
+      id: "Renaissance",
+      title: "Renaissance",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/renaissance.jpg",
+    },
+    {
+      id: "Greek",
+      title: "Greek",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/greek.jpg",
+    },
+    {
+      id: "Treedee",
+      title: "3D",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/3d.jpg",
+    },
+    {
+      id: "Anime",
+      title: "Anime",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/Anime.jpg",
+    },
+    {
+      id: "PixelArt",
+      title: "Pixel Art",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/pixelart.jpg",
+    },
+    {
+      id: "Fantasy",
+      title: "Fantasy",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/fantasy.jpg",
+    },
+    {
+      id: "Scifi",
+      title: "Sci-fi",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/sci-fi.jpg",
+    },
+    {
+      id: "Street",
+      title: "Street",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/street.jpg",
+    },
+    {
+      id: "CyberPunk",
+      title: "CyberPunk",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/cyberPunk.jpg",
+    },
+    {
+      id: "Vector",
+      title: "Vector",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/vector.jpg",
+    },
+    {
+      id: "BlackAbstact",
+      title: "Black Abstact",
+      name: "imgStyle",
+      img_path: "/assets/imgs/gen_style/black.jpg",
+    },
+  ]);
+
+  const imgstylePageList = ref<any>([]);
+
+  const imgPagination = (start = 1, limit = 9) => {
+    const items = imgstyleList.value;
+    const nextItems = items.slice(start - 1, limit);
+    imgstylePageList.value = nextItems;
+  };
+
+  const getImgstylePageList = computed(() => {
+    return imgstylePageList.value;
+  });
+
+  return {
+    sizeList,
+    colorList,
+    imgstyleList,
+    imgstylePageList,
+    getImgstylePageList,
+    imgPagination,
+  };
 });
